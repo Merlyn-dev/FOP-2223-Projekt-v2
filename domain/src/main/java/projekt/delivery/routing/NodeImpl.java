@@ -69,13 +69,15 @@ class NodeImpl implements Region.Node {
 
     @Override
     public Set<Region.Node> getAdjacentNodes() {
-        Set<Region.Node> adjacentNodes = new HashSet<>();
-        adjacentNodes.add(this);
+        Set<Region.Node> aNodes = new HashSet<>();
+        aNodes.add(this);
         for (Location connection : connections) {
             Region.Node node = region.getNode(connection);
-            adjacentNodes.add(node);
+            if (aNodes != null) {
+                aNodes.add(node);
+            }
         }
-        return adjacentNodes;
+        return aNodes;
     }
 
     @Override
