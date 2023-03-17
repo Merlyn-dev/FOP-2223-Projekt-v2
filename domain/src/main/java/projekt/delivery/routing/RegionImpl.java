@@ -84,10 +84,6 @@ class RegionImpl implements Region {
             String location = edge.getNodeA() == null ? edge.getNodeA().getLocation().toString() : edge.getNodeB().getLocation().toString();
             throw new IllegalArgumentException("Node"  + (edge.getNodeA() == null ? "A " : "B ") + location + " is not part of the region");
         }
-        if (edge.getNodeA().getRegion() != this) {
-            String location = edge.getNodeA().getLocation().toString();
-            throw new IllegalArgumentException("NodeA " + location + " is not part of the region");
-        }
         if (!nodes.containsValue(edge.getNodeA()) || !nodes.containsValue(edge.getNodeB())) {
             throw new IllegalArgumentException("Edge " + edge + " has incorrect region");
         }
