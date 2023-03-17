@@ -77,7 +77,7 @@ class RegionImpl implements Region {
      */
     void putEdge(EdgeImpl edge) {
         if (edge.getRegion() != this) {
-            throw new IllegalArgumentException("Node " + edge + " has incorrect region");
+            throw new IllegalArgumentException("Edge " + edge + " has incorrect region");
         }
         //
         if (edge.getNodeA() == null || edge.getNodeB() == null) {
@@ -85,7 +85,7 @@ class RegionImpl implements Region {
             throw new IllegalArgumentException("Node"  + (edge.getNodeA() == null ? "A " : "B ") + location + " is not part of the region");
         }
         if (!nodes.containsValue(edge.getNodeA()) || !nodes.containsValue(edge.getNodeB())) {
-            throw new IllegalArgumentException("Node " + edge + " has incorrect region");
+            throw new IllegalArgumentException("Edge " + edge + " has incorrect region");
         }
         allEdges.add(edge);
     }
